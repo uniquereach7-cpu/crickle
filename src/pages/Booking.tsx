@@ -1,8 +1,38 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { InlineWidget } from "react-calendly";
 import Layout from "@/components/Layout";
 
+type Court = {
+  id: string;
+  name: string;
+  url: string; // calendly url for this court
+  priceLabel?: string;
+  note?: string;
+};
+
+const courts: Court[] = [
+  {
+    id: "pickle",
+    name: "Pickleball Court",
+    // <-- replace with your real calendly link for pickle
+    url: "https://calendly.com/cricklehyderabad/pickle-ball-booking",
+    priceLabel: "₹800 / 60 min",
+    note: "60 minute slots · 6:00 AM – 10:00 PM · Please arrive 5 minutes early.",
+  },
+  {
+    id: "cricket",
+    name: "Cricket Net",
+    // <-- replace with your real calendly link for cricket
+    url: "https://calendly.com/cricklehyderabad/cricket-booking",
+    priceLabel: "₹800 / 60 min",
+    note: "60 minute slots · 6:00 AM – 10:00 PM · Please arrive 5 minutes early.",
+  },
+];
+
 const Booking = () => {
+  const [selected, setSelected] = useState<Court>(courts[0]);
+
   return (
     <Layout>
       <section className="section-padding min-h-screen overflow-hidden" aria-label="Booking">
@@ -28,6 +58,24 @@ const Booking = () => {
             </p>
           </motion.div>
 
+          {/* Court selector */}
+          <div className="flex justify-center lg:justify-start gap-3 mb-4">
+            {courts.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setSelected(c)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  selected.id === c.id
+                    ? "gold-gradient-bg text-primary-foreground gold-glow"
+                    : "glass-card text-muted-foreground hover:text-foreground hover:border-primary/30"
+                }`}
+                aria-pressed={selected.id === c.id}
+              >
+                {c.name}
+              </button>
+            ))}
+          </div>
+
           {/* Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-stretch">
 
@@ -38,29 +86,31 @@ const Booking = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05, duration: 0.45 }}
             >
-              <div className="glass-card h-full rounded-2xl p-6 md:p-8 flex flex-col justify-center">
+              {/* transparent glass card (tune rgba to make more/less transparent) */}
+              <div
+                className="h-full rounded-2xl p-6 md:p-8 flex items-center"
+                style={{
+                  background: "rgba(255,255,255,0.03)", // mostly transparent — adjust alpha if needed
+                  backdropFilter: "blur(6px)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                }}
+              >
+                <div className="w-full max-w-md mx-auto text-center lg:text-left">
+                  <h2 className="text-2xl font-semibold mb-4">{selected.name} Bookings</h2>
 
-                <div className="max-w-md mx-auto text-center lg:text-left">
-                  <h2 className="text-2xl font-semibold mb-4">
-                    Pickleball Court Bookings
-                  </h2>
-
-                  <p className="text-sm text-muted-foreground mb-5">
-                    60 minute slots · 6:00 AM – 10:00 PM · Please arrive 5 minutes early.
-                  </p>
+                  <p className="text-sm text-muted-foreground mb-5">{selected.note}</p>
 
                   <ul className="text-sm space-y-2 mb-6">
-                    <li>• Booking is confirmed immediately</li>
-                    <li>• Cancel or reschedule anytime</li>
-                    <li>• Contact us for multi-court booking</li>
+                    <li>• Booking is confirmed immediately (if payment enabled)</li>
+                    <li>• Cancel or reschedule from the confirmation email</li>
+                    <li>• For groups or multi-court bookings contact us directly</li>
                   </ul>
 
                   <div className="border-t border-border/30 pt-5">
                     <div className="text-sm text-muted-foreground mb-1">Price</div>
-                    <div className="text-2xl font-bold">₹800 / 60 min</div>
+                    <div className="text-2xl font-bold">{selected.priceLabel}</div>
                   </div>
                 </div>
-
               </div>
             </motion.div>
 
@@ -71,44 +121,50 @@ const Booking = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.45 }}
             >
-              <div className="rounded-2xl overflow-hidden h-full">
-
-                <div
-                  className="calendly-wrapper w-full h-full overflow-hidden"
-                >
+              <div
+                className="rounded-2xl overflow-hidden h-full"
+                style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.04)" }}
+              >
+                <div className="calendly-wrapper w-full h-full overflow-hidden">
+                  {/* InlineWidget will re-render when selected.url changes */}
                   <InlineWidget
-                    url="https://calendly.com/askjoshi-0102/pickleball-court-bookings"
+                    url={selected.url}
                     styles={{
                       height: "100%",
                       width: "100%",
                     }}
+                    // if you're using TypeScript and InlineWidget complains, cast as any:
+                    // {...(InlineWidget as any)({ url: selected.url, styles: { height: '100%', width: '100%' } })}
                   />
                 </div>
-
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Height + Overflow Fix */}
-        <style jsx>{`
+        {/* Height + Overflow + styling fixes */}
+        <style>{`
+          /* Calendar wrapper: try to make the iframe fit the viewport so Calendly won't scroll */
           .calendly-wrapper {
-            height: calc(100vh - 190px);
-            min-height: 0px;
+            height: calc(100vh - 190px); /* tweak the 190px if your header changes */
+            min-height: 900px;           /* ensure large enough on desktop */
+            max-height: 90vh;
             overflow: hidden;
+            background: transparent;
           }
 
+          /* smaller screens */
           @media (max-width: 1024px) {
             .calendly-wrapper {
               height: calc(100vh - 220px);
-              min-height: 520px;
+              min-height: 600px;
             }
           }
 
           @media (max-width: 640px) {
             .calendly-wrapper {
-              height: calc(100vh - 200px);
-              min-height: 450px;
+              height: calc(100vh - 160px);
+              min-height: 420px;
             }
           }
         `}</style>
