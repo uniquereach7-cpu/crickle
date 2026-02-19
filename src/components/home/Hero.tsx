@@ -90,10 +90,10 @@ const Hero = () => {
               <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
-              to="/gallery"
+              to="/contact"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-semibold border border-border/50 text-foreground hover:border-primary/40 hover:text-primary transition-all duration-300"
             >
-              Explore Gallery
+              Become a Member
             </Link>
           </motion.div>
         </div>
