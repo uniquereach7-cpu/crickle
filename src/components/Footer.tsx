@@ -48,8 +48,8 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">Sports</h4>
             <ul className="space-y-3">
-              <li className="text-sm text-muted-foreground">Pickleball — 1 Court</li>
-              <li className="text-sm text-muted-foreground">Cricket Nets — 2 Courts</li>
+              <li className="text-sm text-muted-foreground">Pickleball</li>
+              <li className="text-sm text-muted-foreground">Cricket Nets</li>
               <li className="text-sm text-muted-foreground">Open 6:00 AM – 10:00 PM</li>
             </ul>
           </div>
@@ -60,27 +60,27 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="tel:+1234567890" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                  <Phone size={14} /> +1 (234) 567-890
+                  <Phone size={14} /> +91 6309283300
                 </a>
               </li>
               <li>
                 <a href="mailto:hello@crickle.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                  <Mail size={14} /> hello@crickle.com
+                  <Mail size={14} /> cricklehyderabad@gmail.com
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin size={14} /> 123 Sports Ave, City
-                </span>
+                <a href="https://maps.app.goo.gl/ZLYYFahuFZDzzQRB7" target="_blank" rel="noopener noreferrer"><span className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <MapPin size={22} />Rd Number 68, Jubilee Hills, Hyderabad, Telangana
+                </span></a>
               </li>
               <li>
                 <a
-                   href="https://instagram.com"
+                   href="https://www.instagram.com/crickle.hyd"
                    target="_blank"
                    rel="noopener noreferrer"
                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                  >
-                   <Instagram size={14} /> @crickle
+                   <Instagram size={14} /> crickle.hyd
                  </a>
               </li>
             </ul>
@@ -92,7 +92,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Crickle. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
-            Premium indoor sports facility
+            Designed By <a href="https://uniquereachmedia.com/home" target="_blank" rel="noopener noreferrer"><b>Unique Reach Media</b></a>
           </p>
         </div>
       </div>

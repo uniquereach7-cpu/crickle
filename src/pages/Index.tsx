@@ -3,16 +3,14 @@ import Hero from "@/components/home/Hero";
 import Features from "@/components/home/Features";
 import CourtsSection from "@/components/home/CourtsSection";
 import CTASection from "@/components/home/CTASection";
-import VideoSection from "@/components/home/VideoSection";
-import ImageSection from "@/components/home/ImageSection";
+import Socials from "@/components/home/socials";
 
 const Index = () => {
   return (
     <Layout>
       <Hero />
       <CourtsSection />
-      <VideoSection />
-      <ImageSection />
+      <Socials />
       <Features />
       <CTASection />
     </Layout>

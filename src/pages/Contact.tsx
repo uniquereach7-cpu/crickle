@@ -31,8 +31,8 @@ const Contact = () => {
   const contactInfo = [
     { icon: <Phone size={18} />, label: "Phone", value: "6309283300", href: "tel:+916309283300" },
     { icon: <Mail size={18} />, label: "Email", value: "cricklehyderabad@gmail.com", href: "mailto:cricklehyderabad@gmail.com" },
-    { icon: <MapPin size={18} />, label: "Address", value: "Crickle Hyderabad", href: "https://www.google.com/maps/place/Crickle+Hyderabad/data=!4m2!3m1!1s0x0:0x521430e7003ae42b?sa=X&ved=1t:2428&ictx=111" },
-    { icon: <Instagram size={18} />, label: "Instagram", value: "@crickle.hyd", href: "https://www.instagram.com/crickle.hyd?igsh=dWdvYnY3bjRxYnF5" },
+    { icon: <MapPin size={18} />, label: "Address", value: "Rd Number 68, Jubilee Hills, Hyderabad, Telangana", href: "https://www.google.com/maps/place/Crickle+Hyderabad/data=!4m2!3m1!1s0x0:0x521430e7003ae42b?sa=X&ved=1t:2428&ictx=111" },
+    { icon: <Instagram size={18} />, label: "Instagram", value: "crickle.hyd", href: "https://www.instagram.com/crickle.hyd?igsh=dWdvYnY3bjRxYnF5" },
   ];
 
   return (

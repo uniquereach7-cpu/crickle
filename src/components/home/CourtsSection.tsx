@@ -7,20 +7,20 @@ const courts = [
     name: "Pickleball Court",
     tag: "Pickleball",
     description: "Professional regulation court with premium flooring and lighting. Perfect for singles and doubles.",
-    slots: "16 slots / day",
+    // slots: "16 slots / day",
   },
   {
-    name: "Cricket Net 1",
+    name: "Cricket Net",
     tag: "Cricket",
     description: "Full-length batting net with bowling machine access. Ideal for practice sessions.",
-    slots: "16 slots / day",
+    // slots: "16 slots / day",
   },
-  {
-    name: "Cricket Net 2",
-    tag: "Cricket",
-    description: "Full-length batting net. Great for team practice and individual skill development.",
-    slots: "16 slots / day",
-  },
+  // {
+  //   name: "Cricket Net 2",
+  //   tag: "Cricket",
+  //   description: "Full-length batting net. Great for team practice and individual skill development.",
+  //   slots: "16 slots / day",
+  // },
 ];
 
 const CourtsSection = () => {
@@ -42,7 +42,7 @@ const CourtsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {courts.map((court, i) => (
             <motion.div
               key={court.name}
