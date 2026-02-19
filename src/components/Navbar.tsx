@@ -9,6 +9,7 @@ import crickleLogo from "@/assets/crickle.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
+  { to: "/events", label: "Events" },
   { to: "/booking", label: "Book a Court" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
@@ -21,8 +22,9 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
   const location = useLocation();
   const isHero = variant === "hero";
 
+  // Split links around the logo: first two on the left, the rest on the right
   const leftLinks = navLinks.slice(0, 2);
-  const rightLinks = navLinks.slice(2, 4);
+  const rightLinks = navLinks.slice(2);
 
   const linkBase =
     "relative text-sm font-semibold tracking-wide transition-colors duration-200 whitespace-nowrap";
@@ -78,8 +80,9 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
 
   {/* Right links */}
   <div className="flex items-center justify-start gap-[clamp(18px,2.4vw,36px)]">
-    <NavItem to={rightLinks[0].to} label={rightLinks[0].label} />
-    <NavItem to={rightLinks[1].to} label={rightLinks[1].label} />
+    {rightLinks.map((link) => (
+      <NavItem key={link.to} to={link.to} label={link.label} />
+    ))}
   </div>
 </div>
 

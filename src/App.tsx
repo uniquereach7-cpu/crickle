@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
+import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 import useScrollToTop from "./hooks/useScrollToTop";
 
@@ -21,6 +22,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
