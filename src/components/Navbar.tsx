@@ -1,8 +1,11 @@
 // Navbar.tsx (desktop part only changes)
 // Goal: logo bigger + links closer to logo like reference, without causing horizontal scroll.
 
+\"use client\";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import crickleLogo from "@/assets/crickle.png";
@@ -18,7 +21,7 @@ type NavbarProps = { variant?: "hero" | "sticky" };
 
 const Navbar = ({ variant = "hero" }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const isHero = variant === "hero";
 
   // Split links around the logo: first two on the left, the rest on the right
@@ -31,9 +34,9 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
   const active = "text-primary";
 
   const NavItem = ({ to, label }: { to: string; label: string }) => {
-    const isActive = location.pathname === to;
+    const isActive = pathname === to;
     return (
-      <Link to={to} className={`${linkBase} ${isActive ? active : idle}`}>
+      <Link href={to} className={`${linkBase} ${isActive ? active : idle}`}>
         {label}
         {isActive && (
           <motion.div
@@ -69,9 +72,9 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
   </div>
 
   {/* Logo */}
-  <Link to="/" aria-label="Crickle Home" className="flex items-center justify-center">
+  <Link href="/" aria-label="Crickle Home" className="flex items-center justify-center">
     <img
-      src={crickleLogo}
+      src={crickleLogo.src}
       alt="Crickle Logo"
       className="w-24 h-24 lg:w-28 lg:h-28 object-contain drop-shadow-[0_12px_34px_rgba(0,0,0,.45)]"
     />
@@ -88,8 +91,8 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
 
             {/* Mobile */}
             <div className="md:hidden w-full flex items-center justify-between">
-              <Link to="/" aria-label="Crickle Home" className="flex items-center">
-                <img src={crickleLogo} alt="Crickle Logo" className="w-16 h-16 object-contain" />
+              <Link href="/" aria-label="Crickle Home" className="flex items-center">
+                <img src={crickleLogo.src} alt="Crickle Logo" className="w-16 h-16 object-contain" />
               </Link>
 
               <button
@@ -123,7 +126,7 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
           >
             <div className="px-6 py-6 flex flex-col gap-2">
               {navLinks.map((link, i) => {
-                const isActive = location.pathname === link.to;
+                const isActive = pathname === link.to;
                 return (
                   <motion.div
                     key={link.to}
@@ -132,7 +135,7 @@ const Navbar = ({ variant = "hero" }: NavbarProps) => {
                     transition={{ delay: i * 0.05 }}
                   >
                     <Link
-                      to={link.to}
+                      href={link.to}
                       onClick={() => setIsOpen(false)}
                       className={[
                         "block px-4 py-3 rounded-xl text-base font-semibold transition-colors",

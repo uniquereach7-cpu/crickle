@@ -1,5 +1,7 @@
+\"use client\";
+
 import { ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import bgg from "@/assets/bgg1.png";
@@ -9,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const isHome = pathname === "/";
 
   return (
@@ -18,7 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
       <div
         className="fixed inset-0 z-0 opacity-40"
         style={{
-          backgroundImage: `url('${bgg}')`,
+          backgroundImage: `url('${bgg.src}')`,
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",

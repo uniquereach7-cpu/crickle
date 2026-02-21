@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import crickleLogo from "@/assets/crickle.png";
 
@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
+            <Link href="/" className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center">
-                <img src={crickleLogo} alt="Crickle Logo" className="w-full h-full object-contain" />
+                <img src={crickleLogo.src} alt="Crickle Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-display font-bold text-lg tracking-tight text-foreground">
                 <span className="text-primary">Crickle</span>
@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">Navigate</h4>
             <ul className="space-y-3">
-              {[
+                {[
                 { to: "/", label: "Home" },
                 { to: "/booking", label: "Book a Court" },
                 { to: "/gallery", label: "Gallery" },
@@ -34,7 +34,7 @@ const Footer = () => {
               ].map((link) => (
                 <li key={link.to}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.label}

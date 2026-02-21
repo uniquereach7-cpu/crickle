@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+\"use client\";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CalendarDays, MapPin, Clock, Trophy, Users } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -95,13 +97,13 @@ const Events = () => {
 
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link
-                to="/booking"
+                href="/booking"
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold gold-gradient-bg text-primary-foreground gold-glow"
               >
                 View Available Slots
               </Link>
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
               >
                 Host an Event
@@ -149,7 +151,7 @@ const Events = () => {
 
                 {event.cta && (
                   <Link
-                    to={event.cta.to}
+                    href={event.cta.to}
                     className="mt-5 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold gold-gradient-bg text-primary-foreground shadow-sm transition-all gold-glow"
                   >
                     {event.cta.label}

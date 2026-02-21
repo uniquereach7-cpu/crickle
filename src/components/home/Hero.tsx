@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { PickleballRacket, CricketBat, PickleballBall } from "../SVGDoodles";
 import heroBg from "@/assets/hero3.jpeg";

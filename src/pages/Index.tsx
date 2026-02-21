@@ -1,3 +1,5 @@
+\"use client\";
+
 import Layout from "@/components/Layout";
 import Hero from "@/components/home/Hero";
 import Features from "@/components/home/Features";

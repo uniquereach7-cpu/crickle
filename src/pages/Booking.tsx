@@ -1,5 +1,7 @@
+\"use client\";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { InlineWidget } from "react-calendly";
 import Layout from "@/components/Layout";
@@ -155,7 +157,7 @@ const Booking = () => {
 
       <div className="mt-5">
         <Link
-          to="/contact"
+          href="/contact"
           className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium gold-gradient-bg text-primary-foreground gold-glow"
         >
           Become a Member
