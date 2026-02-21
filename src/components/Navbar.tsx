@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 import crickleLogo from "@/assets/crickle.png";
 
 const navLinks = [
-  { to: "/", label: "Home" },
   { to: "/events", label: "Events" },
   { to: "/booking", label: "Book a Court" },
   { to: "/gallery", label: "Gallery" },
