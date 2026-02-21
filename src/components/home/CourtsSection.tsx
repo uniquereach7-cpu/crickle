@@ -67,7 +67,7 @@ const CourtsSection = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">{court.description}</p>
 
                 <Link
-                  to="/booking"
+                  href="/booking"
                   className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all duration-300"
                 >
                   Reserve Now <ArrowRight size={14} />

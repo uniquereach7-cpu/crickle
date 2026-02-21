@@ -83,14 +83,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Link
-              to="/booking"
+              href="/booking"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-semibold gold-gradient-bg text-primary-foreground transition-all duration-300 hover:scale-105 gold-glow"
             >
               Book a Court
               <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-semibold border border-border/50 text-foreground hover:border-primary/40 hover:text-primary transition-all duration-300"
             >
               Become a Member

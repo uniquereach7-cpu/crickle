@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock, Shield, Zap } from "lucide-react";
 import { PickleballRacket, CricketBat, CourtNet } from "../SVGDoodles";
-import instantVideo from "@/assets/instant.mp4";
-import premiumcourtsVideo from "@/assets/premiumcourts.mp4";
-import flexibleTimingsVideo from "@/assets/flexible-timings.mp4";
 
 const features = [
   {
@@ -11,21 +8,21 @@ const features = [
     title: "Instant Booking",
     description: "Reserve your court in seconds. Real-time availability, zero friction.",
     doodle: <PickleballRacket className="w-16 h-16" />,
-    video: instantVideo,
+    video: "/assets/video/instant.mp4",
   },
   {
     icon: <Shield size={22} />,
     title: "Premium Courts",
     description: "Professional-grade surfaces. 1 Pickleball court and 2 Cricket nets.",
     doodle: <CricketBat className="w-14 h-14" />,
-    video: premiumcourtsVideo,
+    video: "/assets/video/premiumcourts.mp4",
   },
   {
     icon: <Clock size={22} />,
     title: "Flexible Hours",
     description: "Open 6 AM to 10 PM. 60-minute slots designed around your schedule.",
     doodle: <CourtNet className="w-20 h-12" />,
-    video: flexibleTimingsVideo,
+    video: "/assets/video/flexible-timings.mp4",
   },
 ];
 

@@ -8,7 +8,6 @@ import cr2 from "@/assets/crickle2.jpeg";
 import cr3 from "@/assets/crickle3.jpeg";
 import cr4 from "@/assets/crickle5.jpeg";
 import cr5 from "@/assets/crickle6.jpeg";
-import heroVideo from "@/assets/herovid.mp4";
 
 type Props = {
   instagramUrl?: string;
@@ -18,7 +17,7 @@ type Props = {
 
 const Socials: React.FC<Props> = ({
   instagramUrl = "https://www.instagram.com/crickle.hyd",
-  videoSrc = heroVideo,
+  videoSrc = "/assets/video/herovid.mp4",
   images = [cr1, cr2, cr3, cr4, cr5],
 }) => {
   // right column top 2 images
@@ -128,7 +127,7 @@ const Socials: React.FC<Props> = ({
       </div>
 
       {/* styles */}
-      <style>{`
+      <style jsx suppressHydrationWarning>{`
         /* grid: video on left, right column on right; main row sits below spanning both columns */
         .grid-root {
           display: grid;

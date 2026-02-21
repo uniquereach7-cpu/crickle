@@ -33,7 +33,7 @@ const CTASection = () => {
               Pick your court, choose your time, and we'll see you on the floor.
             </p>
             <Link
-              to="/booking"
+              href="/booking"
               className="group inline-flex items-center justify-center gap-3 px-10 py-4 rounded-2xl text-base font-semibold gold-gradient-bg text-primary-foreground transition-all duration-300 hover:scale-105 gold-glow"
             >
               Book Your Court

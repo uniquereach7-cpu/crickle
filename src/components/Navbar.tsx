@@ -1,7 +1,7 @@
 // Navbar.tsx (desktop part only changes)
 // Goal: logo bigger + links closer to logo like reference, without causing horizontal scroll.
 
-\"use client\";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";

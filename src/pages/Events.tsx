@@ -1,4 +1,4 @@
-\"use client\";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -178,7 +178,7 @@ const Events = () => {
               </div>
 
               <Link
-                to="/booking"
+                href="/booking"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
               >
                 <Users size={16} />
@@ -221,13 +221,13 @@ const Events = () => {
 
               <div className="flex flex-wrap gap-3">
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold gold-gradient-bg text-primary-foreground gold-glow"
                 >
                   Talk to the team
                 </Link>
                 <Link
-                  to="/booking"
+                  href="/booking"
                   className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
                 >
                   View calendar
